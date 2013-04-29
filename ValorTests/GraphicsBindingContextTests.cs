@@ -43,8 +43,8 @@
         public void SetPhysicsInterval_ChangesPhysicsInterval()
         {
             const double NewPi = 3.2;
-            this.context.RenderInterval = NewPi;
-            Assert.AreEqual(NewPi, this.context.RenderInterval);
+            this.context.PhysicsInterval = NewPi;
+            Assert.AreEqual(NewPi, this.context.PhysicsInterval);
         }
 
         [Test]

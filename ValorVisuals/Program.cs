@@ -32,7 +32,7 @@ namespace ValorVisuals
             var cmax = Int32.Parse(ConfigurationManager.AppSettings["cycleMax"]);
             var c2 = Color.FromArgb(cmin, cmin, cmax);
             var pwd = Directory.GetCurrentDirectory();
-            tm.Image = new ColoredImage(new Bitmap(String.Format("..\\..\\{0}", ConfigurationManager.AppSettings["filename"])), GraphicsHelper.Rotate(c1), c1, c2);
+            tm.Image = new ColoredImage(new Bitmap(ConfigurationManager.AppSettings["filename"]), GraphicsHelper.Rotate(c1), c1, c2);
             ticker.Start();
             Application.Run(f);
         }

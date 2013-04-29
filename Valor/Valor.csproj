@@ -49,6 +49,10 @@
   <ItemGroup>
     <Compile Include="ColoredImage.cs" />
     <Compile Include="GraphicsHelper.cs" />
+    <Compile Include="Physics\Vector\Line.cs" />
+    <Compile Include="Physics\Particles\Particle.cs" />
+    <Compile Include="Physics\Particles\ParticleEngine.cs" />
+    <Compile Include="Physics\Vector\Ray.cs" />
     <Compile Include="TestMode.cs" />
     <Compile Include="ValorEngine.cs" />
     <Compile Include="GameMode.cs" />
@@ -57,6 +61,7 @@
     <Compile Include="ValorForm.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Physics\Vector\Vector.cs" />
   </ItemGroup>
   <ItemGroup>
     <COMReference Include="stdole">

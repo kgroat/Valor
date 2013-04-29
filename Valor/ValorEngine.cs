@@ -38,7 +38,7 @@ namespace Valor
             FontCollection = new PrivateFontCollection();
             Vfps = Double.Parse(ConfigurationManager.AppSettings["vfps"]);
             Cfps = Double.Parse(ConfigurationManager.AppSettings["cfps"]);
-            var FontFileName = String.Format("..\\..\\{0}", ConfigurationManager.AppSettings["FontFile"]);
+            var FontFileName = ConfigurationManager.AppSettings["FontFile"];
             if (File.Exists(FontFileName))
             {
                 try

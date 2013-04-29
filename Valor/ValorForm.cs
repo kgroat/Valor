@@ -27,13 +27,15 @@
 
         ~ValorForm()
         {
-            waveOutDevice.Dispose();
-            mainOutputStream.Dispose();
+            if(waveOutDevice != null)
+                waveOutDevice.Dispose();
+            if(mainOutputStream != null)
+                mainOutputStream.Dispose();
         }
 
         private void RunMusic()
         {
-            var fileName = String.Format("..\\..\\{0}", ConfigurationManager.AppSettings["music"]);
+            var fileName = ConfigurationManager.AppSettings["music"];
 
             if (fileName.EndsWith(".mp3") && File.Exists(fileName))
             {
