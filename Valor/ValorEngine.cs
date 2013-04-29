@@ -13,11 +13,15 @@ namespace Valor
 {
     public class ValorEngine
     {
-        public static readonly float SCALE = (float)Double.Parse(ConfigurationManager.AppSettings["scale"]);
-        public static readonly PrivateFontCollection FONT_COLLECTION = new PrivateFontCollection();
-        public static readonly Font FONT;
-        public static readonly double VFPS = Double.Parse(ConfigurationManager.AppSettings["vfps"]);
-        public static readonly double CFPS = Double.Parse(ConfigurationManager.AppSettings["cfps"]);
+        public static float Scale { get; private set; }
+
+        public static PrivateFontCollection FontCollection { get; private set; }
+
+        public static Font Font { get; private set; }
+
+        public static double Vfps { get; private set; }
+
+        public static double Cfps { get; private set; }
 
         private object _lock;
 
@@ -25,22 +29,31 @@ namespace Valor
 
         static ValorEngine()
         {
-            var fontFileName = String.Format("..\\..\\{0}", ConfigurationManager.AppSettings["fontFile"]);
-            if (File.Exists(fontFileName))
+            init();
+        }
+
+        public static void init()
+        {
+            Scale = (float)Double.Parse(ConfigurationManager.AppSettings["scale"]);
+            FontCollection = new PrivateFontCollection();
+            Vfps = Double.Parse(ConfigurationManager.AppSettings["vfps"]);
+            Cfps = Double.Parse(ConfigurationManager.AppSettings["cfps"]);
+            var FontFileName = String.Format("..\\..\\{0}", ConfigurationManager.AppSettings["FontFile"]);
+            if (File.Exists(FontFileName))
             {
                 try
                 {
-                    FONT_COLLECTION.AddFontFile(fontFileName);
-                    FONT = new Font(FONT_COLLECTION.Families[0], 1f);
+                    FontCollection.AddFontFile(FontFileName);
+                    Font = new Font(FontCollection.Families[0], 1f);
                 }
                 catch
                 {
-                    FONT = new Font(ConfigurationManager.AppSettings["font"], 1);
+                    Font = new Font(ConfigurationManager.AppSettings["Font"], 1);
                 }
             }
             else
             {
-                FONT = new Font(ConfigurationManager.AppSettings["font"], 1);
+                Font = new Font(ConfigurationManager.AppSettings["Font"], 1);
             }
         }
 

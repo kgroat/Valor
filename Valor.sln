@@ -5,6 +5,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Valor", "Valor\Valor.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValorVisuals", "ValorVisuals\ValorVisuals.csproj", "{126DB263-218D-4AB1-891A-A2C5F9ED0935}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{F048D0E9-DABF-47CD-9EA4-888DB01D7ED7}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValorTests", "ValorTests\ValorTests.csproj", "{F2E98B18-7DDB-452E-BBC0-9DDE278F1425}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +28,10 @@ Global
 		{126DB263-218D-4AB1-891A-A2C5F9ED0935}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{126DB263-218D-4AB1-891A-A2C5F9ED0935}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{126DB263-218D-4AB1-891A-A2C5F9ED0935}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2E98B18-7DDB-452E-BBC0-9DDE278F1425}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2E98B18-7DDB-452E-BBC0-9DDE278F1425}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2E98B18-7DDB-452E-BBC0-9DDE278F1425}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2E98B18-7DDB-452E-BBC0-9DDE278F1425}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

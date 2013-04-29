@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Valor
+﻿namespace Valor
 {
+    using System;
+    using System.Drawing;
+
     public static class GraphicsHelper
     {
         private static Random _Rand = new Random();

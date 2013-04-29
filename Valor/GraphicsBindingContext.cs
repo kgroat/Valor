@@ -14,25 +14,7 @@ namespace Valor
     {
         private Timer _GraphicsTimer, _PhysicsTimer;
 
-        public IntPtr? HWnd { get; private set; }
-
-        protected ValorForm Form { get; private set; }
-
-        protected int Width
-        {
-            get
-            {
-                return this.Form.Width;
-            }
-        }
-
-        protected int Height
-        {
-            get
-            {
-                return this.Form.Height;
-            }
-        }
+        public ValorForm Form { get; private set; }
 
         public double RenderInterval
         {
@@ -74,33 +56,17 @@ namespace Valor
             }
             if (RenderInterval <= 0)
             {
-                RenderInterval = 1000 / ValorEngine.VFPS;
+                RenderInterval = 1000 / ValorEngine.Vfps;
             }
             if (PhysicsInterval <= 0)
             {
-                PhysicsInterval = 1000 / ValorEngine.CFPS;
+                PhysicsInterval = 1000 / ValorEngine.Cfps;
             }
             this.Form = form;
-            this.HWnd = this.Form.Handle;
-            this._GraphicsTimer = new Timer();
-            this._GraphicsTimer.Interval = RenderInterval;
+            this._GraphicsTimer = new Timer { Interval = RenderInterval };
             this._GraphicsTimer.Elapsed += _GraphicsTimer_Tick;
-            this._PhysicsTimer = new Timer();
-            this.PhysicsInterval = PhysicsInterval;
+            this._PhysicsTimer = new Timer() { Interval = PhysicsInterval };
             this._PhysicsTimer.Elapsed += _PhysicsTimer_Tick;
-        }
-
-        public System.Drawing.Graphics CreateGraphics()
-        {
-            Graphics output = null;
-            output = System.Drawing.Graphics.FromHwnd(this.HWnd.Value);
-            output.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
-            return output;
-        }
-
-        public Rectangle Viewport()
-        {
-            return new Rectangle(0, 0, this.Form.Width, this.Form.Height);
         }
 
         public bool Start()
@@ -129,16 +95,9 @@ namespace Valor
 
         public void Render()
         {
-            if (this.RenderContext != null)
+            if (!this.Form.IsDisposed && this.RenderContext != null)
             {
-                try
-                {
-                    using (var g = this.CreateGraphics())
-                    {
-                        this.Form.Invalidate();
-                    }
-                }
-                catch { }
+                this.Form.Invalidate();
             }
         }
 
