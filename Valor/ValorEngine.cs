@@ -23,27 +23,27 @@ namespace Valor
 
         public static double Cfps { get; private set; }
 
-        private object _lock;
+        private readonly object _lock;
 
-        private DateTime? PreviousStep;
+        private DateTime? previousStep;
 
         static ValorEngine()
         {
-            init();
+            Init();
         }
 
-        public static void init()
+        public static void Init()
         {
             Scale = (float)Double.Parse(ConfigurationManager.AppSettings["scale"]);
             FontCollection = new PrivateFontCollection();
             Vfps = Double.Parse(ConfigurationManager.AppSettings["vfps"]);
             Cfps = Double.Parse(ConfigurationManager.AppSettings["cfps"]);
-            var FontFileName = ConfigurationManager.AppSettings["FontFile"];
-            if (File.Exists(FontFileName))
+            var fontFileName = ConfigurationManager.AppSettings["FontFile"];
+            if (File.Exists(fontFileName))
             {
                 try
                 {
-                    FontCollection.AddFontFile(FontFileName);
+                    FontCollection.AddFontFile(fontFileName);
                     Font = new Font(FontCollection.Families[0], 1f);
                 }
                 catch
@@ -76,11 +76,11 @@ namespace Valor
         {
             lock (_lock)
             {
-                if (this.PreviousStep.HasValue)
+                if (this.previousStep.HasValue)
                 {
-                    Mode.Step((time - this.PreviousStep.Value).TotalSeconds);
+                    Mode.Step((time - this.previousStep.Value).TotalSeconds);
                 }
-                this.PreviousStep = time;
+                this.previousStep = time;
             }
         }
     }

@@ -20,6 +20,14 @@
             }
         }
 
+        public float Z
+        {
+            get
+            {
+                return this.End.Z - this.Start.Z;
+            }
+        }
+
         public float Length
         {
             get
@@ -44,7 +52,7 @@
             this.End = new Vector(endX, endY);
         }
 
-        public virtual bool Intersects(Line intersector)
+        public virtual bool Intersects2D(Line intersector)
         {
             bool intersection = false;
             var p = new Vector(-intersector.Y, intersector.X);
@@ -59,7 +67,7 @@
             return intersection;
         }
 
-        public virtual Vector PointOfIntersection(Line intersector)
+        public virtual Vector PointOfIntersection2D(Line intersector)
         {
             var p = new Vector(-intersector.Y, intersector.X);
             var h = ((-this.Start + intersector.Start) * p) / (this * p);
@@ -129,9 +137,9 @@
             return multiplicand.AsVector().Dot(multiplier);
         }
 
-        public static Vector operator -(Line origin)
+        public static Line operator -(Line origin)
         {
-            return new Vector(-origin.X, -origin.Y);
+            return new Line(origin.Start, -origin.End);
         }
 
         public static bool operator ==(Line origin, Vector other)

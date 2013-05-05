@@ -3,6 +3,8 @@
     using System;
     using System.Drawing;
 
+    using Valor.Physics.Vector;
+
     public static class GraphicsHelper
     {
         private static Random _Rand = new Random();
@@ -156,6 +158,16 @@
         public static Color Rotate(Color input)
         {
             return Color.FromArgb(input.G, input.B, input.R);
+        }
+
+        public static void DrawLine(this Graphics g, Pen pen, Line line)
+        {
+            g.DrawLine(pen, line.Start.X, line.Start.Y, line.End.X, line.End.Y);
+        }
+
+        public static void DrawRay(this Graphics g, Pen pen, Ray line)
+        {
+            g.DrawLine(pen, line.Start.X, line.Start.Y, line.Direction.X * g.ClipBounds.Width * 2, line.Direction.Y * g.ClipBounds.Height * 2);
         }
     }
 }

@@ -50,26 +50,26 @@
         [Test]
         public void Intersects_ReturnsTrueForIntersectingLines()
         {
-            Assert.IsTrue(Line1.Intersects(Line2) && Line2.Intersects(Line1));
+            Assert.IsTrue(Line1.Intersects2D(Line2) && Line2.Intersects2D(Line1));
         }
 
         [Test]
         public void Intersects_ReturnsFalseForParallelLines()
         {
-            Assert.IsFalse(Line1.Intersects(Line3) || Line3.Intersects(Line1));
+            Assert.IsFalse(Line1.Intersects2D(Line3) || Line3.Intersects2D(Line1));
         }
 
         [Test]
         public void Intersects_ReturnsFalseForLinesTooFarApart()
         {
-            Assert.IsFalse(Line1.Intersects(Line4) || Line4.Intersects(Line1));
+            Assert.IsFalse(Line1.Intersects2D(Line4) || Line4.Intersects2D(Line1));
         }
 
         [Test]
         public void PointOfIntersection_ReturnsVectorAtWhichLinesIntersect()
         {
-            var intersection1 = Line1.PointOfIntersection(Line2);
-            var intersection2 = Line2.PointOfIntersection(Line1);
+            var intersection1 = Line1.PointOfIntersection2D(Line2);
+            var intersection2 = Line2.PointOfIntersection2D(Line1);
             Assert.IsTrue(intersection1 == intersection2 && intersection1.X == 2 && intersection1.Y == 1.5f);
         }
 
@@ -119,9 +119,8 @@
         [Test]
         public void Negation_ReturnsInverseVector()
         {
-            var vec = (Vector)Line1;
             var inv = -Line1;
-            Assert.IsTrue(inv == -vec);
+            Assert.IsTrue(inv.X == -Line1.X && inv.Y == -Line1.Y && inv.Start == Line1.Start);
         }
 
         [Test]

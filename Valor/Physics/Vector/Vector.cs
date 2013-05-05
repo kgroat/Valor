@@ -12,6 +12,8 @@
 
         public float Y { get; protected set; }
 
+        public float Z { get; protected set; }
+
         public float Length
         {
             get { return this.PLength; }
@@ -19,19 +21,33 @@
 
         public Vector()
         {
-            this.X = this.Y = this.PLength = 0;
+            this.X = this.Y = this.Z = this.PLength = 0;
         }
 
         public Vector(float x, float y)
         {
             this.X = x;
             this.Y = y;
+            this.Z = 0;
             this.PLength = (float)Math.Sqrt(this.X * this.X + this.Y * this.Y);
         }
 
-        public virtual float Cross(Vector other)
+        public Vector(float x, float y, float z)
         {
-            return this.X * other.Y - this.Y * other.X;
+            this.X = x;
+            this.Y = y;
+            this.Z = z;
+            this.PLength = (float)Math.Sqrt(this.X * this.X + this.Y * this.Y + this.Z * this.Z);
+        }
+
+        public virtual Vector Cross(Vector other)
+        {
+            var u = this;
+            var v = other;
+            return new Vector(
+                this.Y * other.Z - this.Z * other.Y,
+                this.Z * other.X - this.X * other.Z,
+                this.X * other.Y - this.Y * other.X);
         }
 
         public virtual Vector Add(Vector addend)
@@ -46,7 +62,7 @@
 
         public virtual float Dot(Vector other)
         {
-            return this.X * other.X + this.Y * other.Y;
+            return this.X * other.X + this.Y * other.Y + this.Z * other.Z;
         }
 
         public virtual Vector Multiply(float multiplicand)
@@ -71,7 +87,12 @@
 
         public virtual Vector Normalize()
         {
-            return this / this.PLength;
+            var ret = this;
+            if (this.PLength != 0)
+            {
+                ret = this / this.PLength;
+            }
+            return ret;
         }
 
         public override int GetHashCode()

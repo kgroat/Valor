@@ -16,13 +16,14 @@
 
         public ValorForm()
         {
+            this.Text = "VALOR";
             DoubleBuffered = true;
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             WindowState = FormWindowState.Maximized;
             FormBorderStyle = FormBorderStyle.None;
             KeyDown += this.TestFormKeyDown;
             this.Paint += this.TestFormPaint;
-            this.Shown += (sender, args) => this.RunMusic();
+            //this.Shown += (sender, args) => this.RunMusic();
         }
 
         ~ValorForm()
@@ -74,6 +75,7 @@
             g.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.NearestNeighbor;
             g.ScaleTransform(ValorEngine.Scale, ValorEngine.Scale);
             g.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.Half;
+            g.PageUnit = GraphicsUnit.Pixel;
         }
     }
 }
