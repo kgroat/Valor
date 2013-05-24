@@ -162,7 +162,9 @@
 
         public static void DrawLine(this Graphics g, Pen pen, Line line)
         {
-            g.DrawLine(pen, line.Start.X, line.Start.Y, line.End.X, line.End.Y);
+            const float xMult = 1.5f;
+            const float ratio = 2;
+            g.DrawLine(pen, line.Start.X + line.Start.Z * xMult, line.Start.Y + line.Start.Z * xMult * ratio, line.End.X + line.End.Z * xMult, line.End.Y + line.End.Z * xMult * ratio);
         }
 
         public static void DrawRay(this Graphics g, Pen pen, Ray line)

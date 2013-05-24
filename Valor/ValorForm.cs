@@ -23,7 +23,7 @@
             FormBorderStyle = FormBorderStyle.None;
             KeyDown += this.TestFormKeyDown;
             this.Paint += this.TestFormPaint;
-            //this.Shown += (sender, args) => this.RunMusic();
+            this.Shown += (sender, args) => this.ValorMain();
         }
 
         ~ValorForm()
@@ -34,8 +34,10 @@
                 mainOutputStream.Dispose();
         }
 
-        private void RunMusic()
+        private void ValorMain()
         {
+            ValorEngine.Init(this);
+            Engine.Mode = new MainMenuMode();
             var fileName = ConfigurationManager.AppSettings["music"];
 
             if (fileName.EndsWith(".mp3") && File.Exists(fileName))

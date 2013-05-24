@@ -11,6 +11,6 @@ namespace Valor
     {
         public abstract void Render(Graphics g, float width, float height);
 
-        public abstract void Step(double time);
+        public abstract void Step(float time);
     }
 }

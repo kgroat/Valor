@@ -1,4 +1,6 @@
-﻿namespace Valor.Physics.Vector
+﻿using System.Drawing;
+
+namespace Valor.Physics.Vector
 {
     using System;
 
@@ -13,6 +15,11 @@
         public float Y { get; protected set; }
 
         public float Z { get; protected set; }
+
+        public float Angle
+        {
+            get { return (float)Math.Atan2(Y, X); }
+        }
 
         public float Length
         {
@@ -39,6 +46,9 @@
             this.Z = z;
             this.PLength = (float)Math.Sqrt(this.X * this.X + this.Y * this.Y + this.Z * this.Z);
         }
+
+        public Vector(PointF pointF)
+            : this(pointF.X, pointF.Y) { }
 
         public virtual Vector Cross(Vector other)
         {
@@ -95,6 +105,43 @@
             return ret;
         }
 
+        internal Vector Clamp(Vector minValues, Vector maxValues, out int bx, out int by, out int bz)
+        {
+            float nx = X, ny = Y, nz = Z;
+            bx = by = bz = 0;
+            if (X < minValues.X)
+            {
+                nx = minValues.X;
+                bx = -1;
+            }
+            else if (X > maxValues.X)
+            {
+                nx = maxValues.X;
+                bx = 1;
+            }
+            if (Y < minValues.Y)
+            {
+                ny = minValues.Y;
+                by = -1;
+            }
+            else if (Y > maxValues.Y)
+            {
+                ny = maxValues.Y;
+                by = 1;
+            }
+            if (Z < minValues.Z)
+            {
+                nz = minValues.Z;
+                bz = -1;
+            }
+            else if (Z > maxValues.Z)
+            {
+                nz = maxValues.Z;
+                bz = 1;
+            }
+            return new Vector(nx, ny, nz);
+        }
+
         public override int GetHashCode()
         {
             return (int)(this.X + this.Y * 199933);
@@ -118,6 +165,16 @@
         public static Vector operator -(Vector minuend, Vector subtrahend)
         {
             return minuend.Subtract(subtrahend);
+        }
+
+        public static Vector operator +(Vector addend1, PointF addend2)
+        {
+            return new Vector(addend1.X + addend2.X, addend1.Y + addend2.Y);
+        }
+
+        public static Vector operator -(Vector minuend, PointF subtrahend)
+        {
+            return new Vector(minuend.X - subtrahend.X, minuend.Y - subtrahend.Y);
         }
 
         public static Vector operator *(Vector multiplicand, float multiplier)
@@ -160,6 +217,11 @@
         {
             if ((object)origin == null) return (object)other != null;
             return !origin.Equals(other);
+        }
+
+        public static implicit operator PointF(Vector original)
+        {
+            return new PointF(original.X, original.Y);
         }
     }
 }
