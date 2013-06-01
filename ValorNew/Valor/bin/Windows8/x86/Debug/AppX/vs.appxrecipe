@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>GROATZILLA9001</Machine>
+    <WindowsUser>Kevin</WindowsUser>
+    <SolutionConfiguration>Debug|x86</SolutionConfiguration>
+    <PackageArchitecture>x86</PackageArchitecture>
+    <RegisteredManifestChecksum>FD3A0005E389D490E8082DB9274F657214426F5049F6746029A5D45F90BB3581</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>d72b87de-75ab-48f5-9151-5570ed1a37f4_1.0.0.0_x86__zkzqb6kcb8758</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>d72b87de-75ab-48f5-9151-5570ed1a37f4_zkzqb6kcb8758!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>d72b87de-75ab-48f5-9151-5570ed1a37f4</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=Kevin</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="D:\Dev\ValorNew\Valor\bin\Windows8\x86\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-06-01T19:54:16.360</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="D:\Dev\ValorNew\Valor\bin\Windows8\x86\Debug\Valor.exe">
+      <PackagePath>Valor.exe</PackagePath>
+      <Modified>2013-06-01T20:20:05.044</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\ValorNew\Valor\bin\Windows8\x86\Debug\Valor.pdb">
+      <PackagePath>Valor.pdb</PackagePath>
+      <Modified>2013-06-01T20:20:05.028</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\MonoGame.Framework.dll">
+      <PackagePath>MonoGame.Framework.dll</PackagePath>
+      <Modified>2013-02-25T16:44:00.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.Direct2D1.dll">
+      <PackagePath>SharpDX.Direct2D1.dll</PackagePath>
+      <Modified>2012-12-28T16:17:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.Direct3D11.dll">
+      <PackagePath>SharpDX.Direct3D11.dll</PackagePath>
+      <Modified>2012-12-28T16:17:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.dll">
+      <PackagePath>SharpDX.dll</PackagePath>
+      <Modified>2012-12-28T16:17:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.DXGI.dll">
+      <PackagePath>SharpDX.DXGI.dll</PackagePath>
+      <Modified>2012-12-28T16:17:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.MediaFoundation.dll">
+      <PackagePath>SharpDX.MediaFoundation.dll</PackagePath>
+      <Modified>2012-12-28T16:17:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.XAudio2.dll">
+      <PackagePath>SharpDX.XAudio2.dll</PackagePath>
+      <Modified>2012-12-28T16:17:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.XInput.dll">
+      <PackagePath>SharpDX.XInput.dll</PackagePath>
+      <Modified>2012-12-28T16:17:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.xml">
+      <PackagePath>SharpDX.xml</PackagePath>
+      <Modified>2012-12-28T16:17:34.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.XInput.xml">
+      <PackagePath>SharpDX.XInput.xml</PackagePath>
+      <Modified>2012-12-28T16:17:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.Direct2D1.xml">
+      <PackagePath>SharpDX.Direct2D1.xml</PackagePath>
+      <Modified>2012-12-28T16:17:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.Direct3D11.xml">
+      <PackagePath>SharpDX.Direct3D11.xml</PackagePath>
+      <Modified>2012-12-28T16:17:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.DXGI.xml">
+      <PackagePath>SharpDX.DXGI.xml</PackagePath>
+      <Modified>2012-12-28T16:17:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.MediaFoundation.xml">
+      <PackagePath>SharpDX.MediaFoundation.xml</PackagePath>
+      <Modified>2012-12-28T16:17:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\MSBuild\..\MonoGame\v3.0\Assemblies\Windows8\SharpDX.XAudio2.xml">
+      <PackagePath>SharpDX.XAudio2.xml</PackagePath>
+      <Modified>2012-12-28T16:17:32.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\ValorNew\Valor\Assets\ValorBadgeLogo.png">
+      <PackagePath>Assets\ValorBadgeLogo.png</PackagePath>
+      <Modified>2013-06-01T19:03:32.409</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\ValorNew\Valor\Assets\ValorLogo.png">
+      <PackagePath>Assets\ValorLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-06-01T19:00:29.784</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\ValorNew\Valor\Assets\ValorSmallLogo.png">
+      <PackagePath>Assets\ValorSmallLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-06-01T19:02:50.494</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\ValorNew\Valor\Assets\ValorSplash.png">
+      <PackagePath>Assets\ValorSplash.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-06-01T19:12:50.639</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\ValorNew\Valor\Assets\ValorStoreLogo.png">
+      <PackagePath>Assets\ValorStoreLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-06-01T19:05:03.654</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\ValorNew\Valor\Assets\ValorWideLogo.png">
+      <PackagePath>Assets\ValorWideLogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2013-06-01T19:13:21.956</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\ValorNew\Valor\Content\font.xnb">
+      <PackagePath>Content\font.xnb</PackagePath>
+      <Modified>2013-06-01T15:43:45.037</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\ValorNew\Valor\Content\Mandelbrot Render 16.xnb">
+      <PackagePath>Content\Mandelbrot Render 16.xnb</PackagePath>
+      <Modified>2013-06-01T15:43:45.062</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="D:\Dev\ValorNew\Valor\bin\Windows8\x86\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2013-06-01T19:05:34.603</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+</Project>

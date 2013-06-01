@@ -1,0 +1,3 @@
+D:\Dev\ValorNew\ValorContent\ValorContent\bin\PSM\IgnoreMe.dll
+D:\Dev\ValorNew\ValorContent\ValorContent\obj\PSM\Microsoft.Xna.Framework.RuntimeProfile.txt
+D:\Dev\ValorNew\ValorContent\ValorContent\obj\PSM\IgnoreMe.dll
