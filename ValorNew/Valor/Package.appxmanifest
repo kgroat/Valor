@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest">
+  <Identity Name="d72b87de-75ab-48f5-9151-5570ed1a37f4" Publisher="CN=Kevin" Version="1.0.0.0" />
+  <Properties>
+    <DisplayName>ValorNew</DisplayName>
+    <PublisherDisplayName>Kevin</PublisherDisplayName>
+    <Logo>Assets\ValorStoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.2.1</OSMinVersion>
+    <OSMaxVersionTested>6.2.1</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="Valor.App">
+      <VisualElements DisplayName="Valor" Logo="Assets\ValorLogo.png" SmallLogo="Assets\ValorSmallLogo.png" Description="Valor" ForegroundText="light" BackgroundColor="#004072">
+        <DefaultTile ShowName="allLogos" WideLogo="Assets\ValorWideLogo.png" ShortName="Valor" />
+        <SplashScreen Image="Assets\ValorSplash.png" />
+        <InitialRotationPreference>
+          <Rotation Preference="landscape" />
+        </InitialRotationPreference>
+      </VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
