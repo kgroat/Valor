@@ -14,6 +14,8 @@ namespace Valor
     {
         private float particlesToAdd;
         SpriteBatch _spriteBatch;
+        private SpriteFont _font;
+        private Texture2D tex;
 
         public ParticleEngine Particles { get; set; }
 
@@ -24,7 +26,7 @@ namespace Valor
             Particles = new ParticleEngine();
             ////Ships = new List<Ship>();
             ////Ships.Add(new Ship(new RotatableImage(){ToRender = ValorEngine.Packages["main"].LoadScript("Ship")}));
-            ////Ships[0].PositionOnScreen = new Vector(ValorEngine.Width / 2, ValorEngine.Height / 2);
+            ////Ships[0].PositionOnScreen = new Vector(ValorEngine.ViewWidth / 2, ValorEngine.ViewHeight / 2);
             ////((SourceImage)((AnimableSection)(Ships[0].ToRender.ToRender)).ToRender).Scale = .5f;
         }
 
@@ -32,22 +34,27 @@ namespace Valor
         {
             base.Init(graphicsDevice);
             var starField = Particles.Particles;
-            for (int i = 0; i < Valor.Engine.Width * 2.5f; i++)
+            starField.Clear();
+            for (int i = 0; i < Valor.Engine.ViewWidth * 2.5f; i++)
             {
                 starField.Add(CreateParticleAtSquareZ((float)(GraphicsHelper.Rand.NextDouble() * Valor.Engine.Width), (float)(GraphicsHelper.Rand.NextDouble() * Valor.Engine.Height)));
             }
             this._spriteBatch = new SpriteBatch(this.GraphicsDevice);
+            this._font = Content.Load<SpriteFont>("font");
+            this.tex = Content.Load<Texture2D>("Mandelbrot Render 16");
+            GraphicsDevice.DepthStencilState.DepthBufferEnable = false;
         }
 
         public override void Render(int width, int height)
         {
             GraphicsDevice.Clear(Color.Black);
             this._spriteBatch.Begin();
-            this._spriteBatch.Draw(new Texture2D(this.GraphicsDevice, 1, 1), new Rectangle(0, 0, width, height), Color.Black);
+            //this._spriteBatch.Draw(this.tex, new Rectangle(0, 0, width, height), Color.White);
             foreach (var particle in Particles.Particles)
             {
                 particle.Render(new Point(0, 0));
             }
+            this._spriteBatch.DrawString(this._font, string.Format("{0}x{1} :: {2}x{3}", Valor.Engine.ViewWidth, Valor.Engine.ViewHeight, Valor.Engine.Width, Valor.Engine.Height), new Vector2(0, 0), Color.White);
             this._spriteBatch.End();
             ////g.InterpolationMode = InterpolationMode.Anisotropic;
             ////foreach (var ship in Ships)
@@ -61,7 +68,7 @@ namespace Valor
         {
             var ms = (float)time.ElapsedGameTime.TotalSeconds;
             particlesToAdd += ms * 60 * Valor.Engine.Height / 800;
-            var x = Valor.Engine.Width;
+            var x = Valor.Engine.ViewWidth;
             for (int i = 1; i <= particlesToAdd; i++)
             {
                 var y = Valor.Engine.Height * (float)GraphicsHelper.Rand.NextDouble();
@@ -70,6 +77,11 @@ namespace Valor
             }
             Particles.Step(time);
             particlesToAdd %= 1;
+            foreach (var particle in Particles.Particles)
+            {
+                var p = (LineParticle) particle;
+                p.Color = GraphicsHelper.Step(p.Color, 13);
+            }
             ////foreach (var ship in Ships)
             ////{
             ////    MoveShip(ship);

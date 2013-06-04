@@ -34,20 +34,24 @@ namespace Valor
             }
         }
 
+        public int ViewWidth
+        {
+            get { return this.GraphicsDevice.Viewport.Width; }
+        }
+
+        public int ViewHeight
+        {
+            get { return this.GraphicsDevice.Viewport.Height; }
+        }
+
         public int Width
         {
-            get
-            {
-                return this.GraphicsDevice.Viewport.Width;
-            }
+            get { return this.GraphicsDevice.PresentationParameters.BackBufferWidth; }
         }
 
         public int Height
         {
-            get
-            {
-                return this.GraphicsDevice.Viewport.Height;
-            }
+            get { return this.GraphicsDevice.PresentationParameters.BackBufferHeight; }
         }
 
         public Valor()
@@ -55,6 +59,7 @@ namespace Valor
             _graphics = new GraphicsDeviceManager(this);
             _graphics.IsFullScreen = true;
             Content.RootDirectory = "Content";
+            this.Window.ClientSizeChanged += (sender, args) => { this._gameMode.Init(this.GraphicsDevice); };
         }
 
         /// <summary>
@@ -68,7 +73,19 @@ namespace Valor
             // TODO: Add your initialization logic here
             Engine = this;
             this._gameMode = new MainMenuMode(this.Content);
+            this.Resize();
             base.Initialize();
+        }
+
+        protected void Resize()
+        {
+            var width = this.ViewWidth/2;
+            var height = this.ViewHeight/2;
+            this._graphics.PreferredBackBufferWidth = this.ViewWidth / 2;
+            this._graphics.PreferredBackBufferHeight = this.ViewHeight / 2;
+            this._graphics.PreferMultiSampling = false;
+            //this.GraphicsDevice.PresentationParameters.MultiSampleCount = 1;
+            this._graphics.ApplyChanges();
         }
 
         /// <summary>
@@ -79,7 +96,7 @@ namespace Valor
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
-            this.GameMode.Init(GraphicsDevice);
+            this._gameMode.Init(GraphicsDevice);
 
             // TODO: use this.Content to load your game content here
         }

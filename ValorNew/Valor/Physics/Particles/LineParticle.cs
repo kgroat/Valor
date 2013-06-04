@@ -41,9 +41,9 @@ namespace Valor.Physics.Particles
                 vel = vel.Normalize() * Margin;
             }
             var vertices = new VertexPositionColor[2];
-            vertices[0].Position = (this.Position + v).ToVector3();
+            vertices[0].Position = (this.Position + v + new Vector(0, 0, -2)).ToVector3();
             vertices[0].Color = this.Color;
-            vertices[1].Position = (this.Position - vel + v).ToVector3();
+            vertices[1].Position = (this.Position - vel + v + new Vector(0, 0, -2)).ToVector3();
             vertices[1].Color = this.Color;
 
             line.CurrentTechnique.Passes[0].Apply();
