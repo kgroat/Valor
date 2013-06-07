@@ -86,6 +86,11 @@
             return new Tuple<Line, Line>(new Line(this.Start, mid), new Line(mid, this.End));
         }
 
+        public virtual Line PerpendicularThrough(Vector point)
+        {
+            throw new NotImplementedException("Not yet implemented.");
+        }
+
         public virtual Vector AsVector()
         {
             return this.End - this.Start;

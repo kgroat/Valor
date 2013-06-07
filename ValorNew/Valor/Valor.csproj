@@ -127,6 +127,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drawing\BlendingMode.cs" />
+    <Compile Include="Drawing\ColorFill.cs" />
+    <Compile Include="Drawing\Colors\ColorSpace.cs" />
+    <Compile Include="Drawing\FillMode.cs" />
+    <Compile Include="Drawing\Graphics.cs" />
+    <Compile Include="Drawing\Colors\HCYColor.cs" />
     <Compile Include="GameMode.cs" />
     <Compile Include="GraphicsHelper.cs" />
     <Compile Include="InputHelper.cs" />
@@ -135,6 +141,7 @@
     <Compile Include="Physics\Particles\Particle.cs" />
     <Compile Include="Physics\Particles\ParticleEngine.cs" />
     <Compile Include="Physics\Vector\Line.cs" />
+    <Compile Include="Physics\Vector\Polygon2.cs" />
     <Compile Include="Physics\Vector\Ray.cs" />
     <Compile Include="Physics\Vector\Vector.cs" />
     <Compile Include="Program.cs" />

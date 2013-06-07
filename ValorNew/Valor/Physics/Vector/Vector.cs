@@ -1,36 +1,25 @@
-﻿using System.Drawing;
+﻿using Microsoft.Xna.Framework;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Valor.Physics.Vector
 {
-    using System;
-
-    using Microsoft.Xna.Framework;
-
-    public class Vector
+    public struct Vector
     {
-        private const float Epsilon = 0.00001f;
-
-        protected float PLength;
-
-        public float X { get; protected set; }
-
-        public float Y { get; protected set; }
-
-        public float Z { get; protected set; }
-
-        public float Angle
-        {
-            get { return (float)Math.Atan2(Y, X); }
-        }
+        public readonly float X, Y, Z;
+        private readonly float PLength, PAngle;
 
         public float Length
         {
             get { return this.PLength; }
         }
 
-        public Vector()
+        public float Angle
         {
-            this.X = this.Y = this.Z = this.PLength = 0;
+            get { return this.PAngle; }
         }
 
         public Vector(float x, float y)
@@ -39,6 +28,7 @@ namespace Valor.Physics.Vector
             this.Y = y;
             this.Z = 0;
             this.PLength = (float)Math.Sqrt(this.X * this.X + this.Y * this.Y);
+            this.PAngle = (float)Math.Atan2(Y, X);
         }
 
         public Vector(float x, float y, float z)
@@ -47,12 +37,14 @@ namespace Valor.Physics.Vector
             this.Y = y;
             this.Z = z;
             this.PLength = (float)Math.Sqrt(this.X * this.X + this.Y * this.Y + this.Z * this.Z);
+            this.PAngle = (float)Math.Atan2(Y, X);
         }
-
+        
         public Vector(Point pointF)
             : this(pointF.X, pointF.Y) { }
 
-        public virtual Vector Cross(Vector other)
+
+        public Vector Cross(Vector other)
         {
             var u = this;
             var v = other;
@@ -62,42 +54,42 @@ namespace Valor.Physics.Vector
                 this.X * other.Y - this.Y * other.X);
         }
 
-        public virtual Vector Add(Vector addend)
+        public Vector Add(Vector addend)
         {
             return new Vector(this.X + addend.X, this.Y + addend.Y);
         }
 
-        public virtual Vector Subtract(Vector subtrahend)
+        public Vector Subtract(Vector subtrahend)
         {
             return new Vector(this.X - subtrahend.X, this.Y - subtrahend.Y);
         }
 
-        public virtual float Dot(Vector other)
+        public float Dot(Vector other)
         {
             return this.X * other.X + this.Y * other.Y + this.Z * other.Z;
         }
 
-        public virtual Vector Multiply(float multiplicand)
+        public Vector Multiply(float multiplicand)
         {
             return new Vector(this.X * multiplicand, this.Y * multiplicand);
         }
 
-        public virtual Vector Divide(float dividend)
+        public Vector Divide(float dividend)
         {
             return new Vector(this.X / dividend, this.Y / dividend);
         }
 
-        public virtual Point ToPoint()
+        public Point ToPoint()
         {
             return new Point((int)this.X, (int)this.Y);
         }
 
-        public virtual Vector3 ToVector3()
+        public Vector3 ToVector3()
         {
             return new Vector3(this.X, this.Y, this.Z);
         }
 
-        public virtual Vector Normalize()
+        public Vector Normalize()
         {
             var ret = this;
             if (this.PLength != 0)
@@ -144,14 +136,13 @@ namespace Valor.Physics.Vector
             return new Vector(nx, ny, nz);
         }
 
-        public override int GetHashCode()
+        public int GetHashCode()
         {
             return (int)(this.X + this.Y * 199933);
         }
 
-        public override bool Equals(object obj)
+        public bool Equals(Vector other)
         {
-            var other = obj as Vector;
             if (other != null)
             {
                 return this.GetHashCode() == other.GetHashCode();
