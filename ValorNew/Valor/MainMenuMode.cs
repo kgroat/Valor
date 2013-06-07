@@ -17,6 +17,8 @@ namespace Valor
         private SpriteFont _font;
         private Texture2D tex;
 
+        private double fps;
+
         public ParticleEngine Particles { get; set; }
 
         //public IList<Ship> Ships { get; set; } 
@@ -54,7 +56,7 @@ namespace Valor
             {
                 particle.Render(new Point(0, 0));
             }
-            this._spriteBatch.DrawString(this._font, string.Format("{0}x{1} :: {2}x{3}", Valor.Engine.ViewWidth, Valor.Engine.ViewHeight, Valor.Engine.Width, Valor.Engine.Height), new Vector2(0, 0), Color.White);
+            this._spriteBatch.DrawString(this._font, string.Format("{0}x{1} :: {2}x{3} :: {4}fps", Valor.Engine.ViewWidth, Valor.Engine.ViewHeight, Valor.Engine.Width, Valor.Engine.Height, fps), new Vector2(0, 0), Color.White);
             this._spriteBatch.End();
             ////g.InterpolationMode = InterpolationMode.Anisotropic;
             ////foreach (var ship in Ships)
@@ -82,6 +84,7 @@ namespace Valor
                 var p = (LineParticle) particle;
                 p.Color = GraphicsHelper.Step(p.Color, 13);
             }
+            fps = 1/time.ElapsedGameTime.TotalSeconds;
             ////foreach (var ship in Ships)
             ////{
             ////    MoveShip(ship);
